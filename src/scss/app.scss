@@ -1,3 +1,5 @@
-body {
-    background-color: red;
-}
+@forward 'base';
+@forward 'layout';
+//Apunta a las carpetas base y layout
+//Use cuando se necesite alguna variable
+//Forward para importar todo el archivo
