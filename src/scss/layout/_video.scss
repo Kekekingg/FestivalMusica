@@ -1,0 +1,49 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.video {
+    position: relative; /*Siempre el padre es relative*/
+    min-height: 50rem; /*Para que el video ocupe todo el alto de la pantalla*/
+    max-height: 70rem; /*Para que el video tenga un tope de alto de la pantalla*/
+    overflow: hidden; /*Para que no se salga el video de la pantalla*/
+    .overlay {
+        position: absolute;
+        background: linear-gradient(
+            270deg,
+            rgba(v.$morado, 60%), /*Transparencia*/
+            rgba( darken( v.$morado, 20%) , 90%), /*Darken funcion de SASS*/
+
+        );
+        inset: 0;
+
+        display: flex;
+        align-items: center;
+    }
+
+    video {
+        display: block;
+        width: auto; /*Para dispositivos pequeños*/
+        @include m.desktop {
+            width: 100%; /*Para dispositivos grandes*/
+
+        }
+    }
+}
+.contenido-video {
+
+    z-index: 10; /*Muestra el titulo delante del video (se puede seleccionar)*/
+    h2 {
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+    p {
+        background-color: v.$rosa;
+        display: inline-block;
+        padding: 1rem 2rem; 
+        color: v.$blanco;
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin: 0;
+    }
+}
